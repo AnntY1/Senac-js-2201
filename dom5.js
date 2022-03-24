@@ -57,10 +57,11 @@ itensArray.forEach(function(li, indice){
 
 
 // impar e par odd (impar) even (par) :)
-
+/*
 let itensImpares = document.querySelectorAll('li:nth-child(odd)');
 
 
+//como mudar a cor das linhas impares
 
 let mudaCor = Array.from(itensImpares);
 mudaCor.forEach(function(item){
@@ -69,8 +70,25 @@ mudaCor.forEach(function(item){
 
 });
 
-
 console.log(itensImpares);
 
+*/
+
+const ITENS = document.querySelector('ul.collection');
+
+console.log(ITENS.children[2].firstChild);
+ITENS.children[2].firstChild.textContent = 'estudar ainda mais';
+
+
+
+const tarefa = document.querySelector('div.input-field');
+console.log(tarefa.children[1].innerHTML);
+
+
+const Limpar = document.querySelector('a.clear-tasks');
+
+let muda = Limpar.innerHTML = 'Limpar a porra toda';
+
+console.log(muda);
 
 
