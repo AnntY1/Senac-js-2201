@@ -1,5 +1,7 @@
 //function nomeDaFunção(){}
 
+// funçoes: um conjunto de instruções que executa uma tarefa ou calcula um valor
+
 function olaMundoNoLog(nome){
     console.log(`Olá ${nome}!`);
 }
@@ -42,7 +44,7 @@ aluno.setNome("BlaBLa");
 
 //Exercício datas
 
-let hoje = new Date();
+let hoje = new Date(); //data : instancia informações como data, mes dia etc
 
 console.log(hoje.getSeconds());
 
