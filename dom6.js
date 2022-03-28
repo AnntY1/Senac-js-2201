@@ -1,13 +1,13 @@
 
-const LI = document.createElement('li');
+const LI = document.createElement('li');// criando o elemento LI
 
-LI.className = 'collection-item';
+LI.className = 'collection-item'; //criando uma classe para o elemento
 
-LI.id = 'nova-tarefa-qualquer';
+LI.id = 'nova-tarefa-qualquer'; //id para o elemento.
 
-LI.setAttribute('title','Pare o mouse para ver');
+LI.setAttribute('title','Pare o mouse para ver'); // atributo para o elemento
 
-const TEXTO = document.createTextNode('Tarefa inserida dinamicamente');
+const TEXTO = document.createTextNode('Tarefa inserida dinamicamente'); 
 
 LI.appendChild(TEXTO);
 
@@ -15,7 +15,7 @@ console.log(LI);
 
 const UL = document.querySelector('ul.collection');
 
-UL.appendChild(LI);
+UL.appendChild(LI); //colocando o LI dentro do UL
 
 //Criando o X.
 
@@ -45,5 +45,5 @@ const tituloAntigo = document.getElementById('task-title');
 
 const acaoNoCard = document.querySelector('.card-action');
 
-acaoNoCard.replaceChild(novoTitulo, tituloAntigo);
+acaoNoCard.replaceChild(novoTitulo, tituloAntigo); //substituindo o antigo titulo pelo o novo!
 
