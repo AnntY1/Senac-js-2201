@@ -69,13 +69,13 @@ function apagaTodasTarefas(evento){
     evento.preventDeFault();
 
     LISTA.innerHTML = '';
-
-    if(evento.target.parentElement.classList.contains('apaga-tarefa')){
-        evento.target.parentElement.parentElement.remove();
-    
+    apagaTodasDoLocalStorage();
+        
     }
-}
 
+function apagaTodasDoLocalStorage(){
+        localStorage.removeItem('tarefas');
+}
 function apagarTarefa(evento){
 
     if(evento.target.parentElement.classList.contains('apaga-tarefa')){
@@ -83,6 +83,7 @@ function apagarTarefa(evento){
 
     }
 
+    
 
 }
 
@@ -138,5 +139,29 @@ function gravaTarefaNoLocalStorage(tarefa){
 
 
 }
+
+function apagaDoLocalStorage(tarefaParaApagar){
+let tarefas;
+
+    if(localStorage.getItem('tarefas') === null){
+
+        tarefas = [];
+    }else{
+
+        tarefas = JSON.parse(localStorage.getItem('tarefas'));
+    }
+    tarefas.forEach(function(tarefas, indice){
+
+        if(tarefaParaApagar.textContent === tarefas){
+            tarefas.splice(indice, 1);
+        }
+    });
+
+    localStorage.setItem('tarefas', JSON.stringify(tarefas));
+
+}
+
+
+
 
 carregaMonitorDeEventos();
