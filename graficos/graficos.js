@@ -1,3 +1,5 @@
+//bilbioteca morris, para usar os graficos.
+
 new Morris.Line({
 
     element: 'grafico',
