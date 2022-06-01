@@ -1,6 +1,6 @@
 document.querySelector('.card-title').addEventListener('click', function(e){ //essa função recebe como parametro o E
    
-
+//e.targetUma referência ao objeto que enviou o evento
     console.log(e.target);
 });
 
