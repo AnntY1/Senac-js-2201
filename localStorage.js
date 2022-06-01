@@ -39,7 +39,7 @@ document.querySelector('input.btn').addEventListener('click', function(e){
 
   }else{
 
-    tarefas = JSON.parse(localStorage.getItem('tarefas'));
+    tarefas = JSON.parse(localStorage.getItem('tarefas'));  //analisa uma string JSON, construindo o valor ou um objeto JavaScript descrito pela string
 
   }
 
