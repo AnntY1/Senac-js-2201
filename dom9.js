@@ -1,4 +1,5 @@
-document.querySelector('.card-title').addEventListener('click', function(e){
+document.querySelector('.card-title').addEventListener('click', function(e){ //essa função recebe como parametro o E
+   
 
     console.log(e.target);
 });
