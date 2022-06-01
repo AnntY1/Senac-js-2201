@@ -6,7 +6,7 @@ const CAMPO_TAREFA = document.querySelector('#tarefa');
 
 function carregaMonitorDeEventos() {
 
-    //eventos
+    //Adicionando eventos para cada elemento do html.
     FORMULARIO.addEventListener('submit', adicionarTarefa);
     LISTA.addEventListener('click', apagarTarefa);
     BTN_LIMPAR.addEventListener('click', apagaTodasTarefas);
@@ -17,14 +17,14 @@ function carregaMonitorDeEventos() {
 function pegaTarefa(){
     let tarefas;
 
-    if(localStorage.getItem('tarefas') === null){
+    if(localStorage.getItem('tarefas') === null){ //se for igual a nulo, ele cria uma array tarefas.
         tarefas = [];
     
     }else{
-        tarefas = JSON.parse(localStorage.getItem('tarefas'));
-    }
+        tarefas = JSON.parse(localStorage.getItem('tarefas')); //se não, o json passa um valor para tarefas.
+    } //JSON.parse: Analisa uma string JSON, construindo o valor ou um objeto JavaScript descrito pela string
 
-    tarefas.forEach(function(tarefa){
+    tarefas.forEach(function(tarefa){//repetição para cada elemento do array.
         
         //cria os novos elementos
     const LI = document.createElement('li');
@@ -42,20 +42,22 @@ function pegaTarefa(){
 }
 
 
+//Função para filtrar tarefas, pra cada elemento ele cria uma fução.
+
 function filtraTarefa(evento){
 
     const texto = evento.target.value.toLowerCase();
 
-    document.querySelectorAll('.collection-item').forEach(function(tarefa) {
+    document.querySelectorAll('.collection-item').forEach(function(tarefa) { // Para cada elemento que existe essa classe, ele executa essa função.
 
-        const item = tarefa.firstChild.textContent;
+        const item = tarefa.firstChild.textContent; //primeiro filho e texto de cada tarefa.
         
         //-1 significa que não há o que esta sendo buscado
-        if(item.toLowerCase().indexOf(texto) != -1){
+        if(item.toLowerCase().indexOf(texto) != -1){        //se o index for diferente de -1 ele mostra block
             tarefa.style.display = 'block';
         }else{
 
-            tarefa.style.display = 'nome';
+            tarefa.style.display = 'nome';     //se não mostra nome
         }
         
     });
@@ -64,9 +66,9 @@ function filtraTarefa(evento){
 }
 
 
-function apagaTodasTarefas(evento){
+function apagaTodasTarefas(evento){  
 
-    evento.preventDeFault();
+    evento.preventDeFault(); //cancela o evento se for cancelado, sem parar de executar a função
 
     LISTA.innerHTML = '';
 
@@ -91,7 +93,7 @@ function adicionarTarefa(evento){
 
 
     evento.preventDeFault();
-    if(CAMPO_TAREFA.value === ''){//verifica se o campo está vazio
+    if(CAMPO_TAREFA.value === ''){//Se o campo for vazio ele da o alert.
 
         alert('Insira uma tarefa');
    
@@ -113,11 +115,12 @@ function adicionarTarefa(evento){
     //fim cria os novos elementos
 
 
-    LISTA.appendChild(LI);//adicionar a lista de tarefas.
+    LISTA.appendChild(LI); //Jogando as informações dentro da lista ja existente. 
     
     gravaTarefaNoLocalStorage(CAMPO_TAREFA);
     CAMPO_TAREFA.value = '';
 
+        //gravando no local Storage o que o usuario digitou.
     
     }
 
@@ -127,14 +130,14 @@ function gravaTarefaNoLocalStorage(tarefa){
 
     let tarefas;
 
-    if(localStorage.getItem('tarefas') === null){
+    if(localStorage.getItem('tarefas') === null){ //se for igual a nulo, ele cria uma array tarefas.
         tarefas = [];
     }else{
 
-        tarefas = JSON.parse(localStorage.getItem('tarefas'));
+        tarefas = JSON.parse(localStorage.getItem('tarefas')); //se não, o json passa um valor para tarefas.
     }
     tarefas.push(tarefa.value);
-    localStorage.setItem('tarefas', JSON.stringify(tarefas));
+    localStorage.setItem('tarefas', JSON.stringify(tarefas)); //converte valor para string
 
 
 }
