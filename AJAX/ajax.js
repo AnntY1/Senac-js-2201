@@ -36,7 +36,7 @@ function carregaConteudo(){
 
 //O fetch faz a requisição do link, e executa a função resultado. 
 
-    fetch('http://10.135.236.14:5500/aula-27-04-22/AJAX/conteudo.txt%27).then(function(resultado)%7B   
+    fetch('http://10.135.236.14:5500/aula-27-04-22/AJAX/conteudo.txt%27').then(function(resultado)%7B   
         return resultado.text(); //retorna o resultado da função em texto.
     }).then(function(conteudo){
         document.getElementById('exibe-conteudo-recuperado').innerText = conteudo; //feito isso ele adiciona o resultado no exibe-conteudo.
